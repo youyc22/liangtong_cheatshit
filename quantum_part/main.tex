@@ -304,7 +304,7 @@ $\begin{cases}
     -\frac{\hbar^2}{2\mu r^2}\frac{d}{dr}\left(r^2\frac{dR}{dr}\right) + \left[U(r) + \frac{\lambda\hbar^2}{2\mu r^2}\right]R = ER(r)
     \end{cases}$\\
 得到能量本征值，有束缚态解，离散谱(E>0时非束缚态，连续谱)\\
-$E = -\frac{m_e}{2\hbar^2n^2}(\frac{Ze^2}{4\pi\epsilon_0})^2$，$n=1,2,3,\dots$\\
+$E = -\frac{m_e}{2\hbar^2n^2}(\frac{Ze^2}{4\pi\epsilon_0})^2$，$n=1,2,3,\dots$，对于氢原子Z=1\\
 其中$n=n_r+l+1$，$l=0,1,2,\dots$，$n_r$为径量子数\\
 氢原子能谱：$E_n = -\frac{13.6}{n^2}eV$\\
 宇称性质只与角量子数l有关，l为奇数时为奇宇称，l为偶数时为偶宇称\\
@@ -537,8 +537,11 @@ $j=0,1,2,\dots or \frac{1}{2},\frac{3}{2},\dots, m=-j,-j+1,\dots,j$\\
 \end{figure}
 
 \redtext{其他}：\\
-$\int_{-\infty}^{+\infty}e^{-x^2}dx = \sqrt{\pi}$\\
-$\int_{-\infty}^{+\infty}x^ne^{-ax^2}dx = \frac{(n-1)!!}{2a^{n/2}}$N为偶数\\
+$\int_{-\infty}^{+\infty}e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}$\\
+$\int_{0}^{+\infty}x^ne^{-ax}dx = \frac{n!}{a^{n+1}}$\\
+$\int_{0}^{+\infty}x^{2n}e^{-ax^2}dx = \frac{(2n-1)!!}{2^{n+1}}\sqrt{\frac{\pi}{a^{2n+1}}}$\\
+$\int_{0}^{+\infty}x^{2n-1}e^{-ax^2}dx = \frac{(n-1)!}{2a^{n}}$\\
+$\int_{-\infty}^{+\infty}cos(wx)e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}e^{-\frac{w^2}{4a}}$\\
 散度定理$\int_V \nabla\cdot\vec{A}dV = \oint_S \vec{A}\cdot d\vec{S}$\\
 旋度定理$\int_S \nabla\times\vec{A}\cdot d\vec{S} = \oint_C \vec{A}\cdot d\vec{l}$\\
 \end{multicols}
