@@ -44,7 +44,7 @@
 \begin{multicols}{3}
 
 \redtext{一、量子力学绪论}\\
-\bluetext{德布罗意关系}\\
+\bluetext{德布罗意关系}
 E：粒子能量 p：粒子动量 $\nu$：粒子波频率 $\lambda$：粒子波波长 $\omega$：粒子波角频率 $k$：粒子波矢\\
 波动性内部转换：$k=2\pi/\lambda$、$w=2\pi\nu$、$\hbar=h/2\pi$、$\lambda=h/p$
 波矢与动量关系$k=p/\hbar$，
@@ -55,7 +55,7 @@ E：粒子能量 p：粒子动量 $\nu$：粒子波频率 $\lambda$：粒子波�
 $p=E/c=h\nu/c=h/\lambda$\\
 康普顿效应证明光的粒子性：散射光频率与散射角度有关\\
 \redtext{二、波函数与薛定谔方程}\\
-\bluetext{波函数}\\
+\bluetext{波函数}
 平面波不能有限归一化，此时$|\psi(r, t)|^2$表示相对几率密度；$|\psi(r, t)|^2 = 1$时，表示波函数在全空间均匀分布\\
 一维平面波波函数为$\psi(x, t) = Ae^{\frac{i}{\hbar}(px-E t)}$\\
 \bluetext{态叠加原理}
@@ -70,7 +70,6 @@ $\psi(x)=\int_\infty\delta(x-x')\psi(x')dx'= $ \\ $\int\psi(x')\frac{1}{2\pi}\in
 $ = \int(\int\psi(x')\frac{1}{2\pi}e^{ikx'}dx')e^{ikx}dk=\int C(k)e^{ikx}dk $\\
 $c(p)=C(k)\frac{1}{\sqrt{2\pi\hbar}}, k=\frac{p}{\hbar}$\\
 \bluetext{薛定谔方程}
-
 单粒子系统薛定谔方程：\\$i\hbar\frac{\partial}{\partial t}\psi = \hat{E}\psi = H\psi = -\frac{\hbar^2}{2\mu}\nabla^2\psi + U(\vec{r})\psi$ 
  
 \bluetext{几率流密度}
@@ -86,7 +85,6 @@ $c(p)=C(k)\frac{1}{\sqrt{2\pi\hbar}}, k=\frac{p}{\hbar}$\\
 
     令$W_v=\int_V w(\vec{r}, t)d\tau$为体系几率，有$W_v$为常数，全空间出现粒子的几率为1，对波函数归一化后，归一化随时间保持\\
 \bluetext{定态薛定谔方程的分离变量解}
-
 定态薛定谔方程：$H\psi = E\psi$ 也即能量本征方程，其中$H$为哈密顿算符，$E$为本征值
 
 对应的$\psi(r)$为能量本征函数(态)，有时也将$\psi_n(r, t) = \psi_n(r)\exp(-\frac{i}{\hbar}E_n t)$称为能量本征函数
@@ -99,7 +97,6 @@ $c(p)=C(k)\frac{1}{\sqrt{2\pi\hbar}}, k=\frac{p}{\hbar}$\\
 \redtext{三、一维运动问题}
 
 \bluetext{一维无限深方势阱}
-
 一维运动方程：$\frac{d^2}{dx^2}\psi + \frac{2\mu(E-U(x))}{\hbar^2}\psi = 0$
 
 一维无限深势阱的势能方程表达为: \\
@@ -119,7 +116,6 @@ $ \psi_n(x) = \begin{cases}
 一维无限深方势阱的定态解为两个传播方向相反的平面波叠加形成的驻波
 
 \bluetext{一维运动问题分析}
-
 基态：体系中能量最低的状态，基态能量称为零点能\\
 定态：即能量本征态，定态下一切力学量的本征值和相对分布不随时间改变\\
 束缚态：无穷远处波函数为0的状态（即对应粒子被束缚在势阱中）vs 散射态\\
@@ -150,11 +146,11 @@ $E_n = \frac{2\hbar^2}{ma^2}\xi_n^2, \quad 0 < \xi_1 < \frac{\pi}{2} < \xi_2 < \
 求解得到：$E_{n,m,l} = \frac{\hbar^2\pi^2}{2m}(n^2/a^2 + m^2/b^2 + l^2/c^2)$\\
 对应的波函数为：\\$\psi_{n,m,l}(x,y,z) = \sqrt{\frac{8}{abc}}\sin(\frac{n\pi x}{a})\sin(\frac{m\pi y}{b})\sin(\frac{l\pi z}{c})$\\
 二维极限：c趋近于0，l=1和l=2能级差距极大，粒子冻结在l=1能态，一维极限类似\\
-\bluetext{平行平面极板}\\
+\bluetext{平行平面极板}
 粒子在x,y方向上自由，在z方向上受限，波函数为\\
 $\psi(x,y,z) = C\exp(i(k_xx+k_yy))\sin(k_zz),k_z=\frac{n\pi}{a}$ kx和ky任意实数(连续)\\
 能量分立的原理是束缚态条件(无穷远处波函数为0)只在分立值成立\\
-\bluetext{一维线性谐振子}\\
+\bluetext{一维线性谐振子}
 势能方程为$U(x) = \frac{1}{2}m\omega^2x^2$\\
 能级为$E_n = (n+\frac{1}{2})\hbar\omega$\\
 归一化波函数为\\$\psi_n(x) = N_nH_N(\alpha x)\exp(-\alpha^2x^2/2)$\\
@@ -253,7 +249,6 @@ $\psi^*(L/2)\phi(L/2) = \psi^*(-L/2)\phi(-L/2) \quad (L \rightarrow +\infty)$
 则厄密性也满足。
 
 \bluetext{角动量算符}
-
 $\vec{L} = \begin{vmatrix} \hat{i} & \hat{j} & \hat{k} \\ x & y & z \\ -i\hbar\partial_x & -i\hbar\partial_y & -i\hbar\partial_z \end{vmatrix}$\\
 引入球坐标转换：\\$x = r\sin\theta\cos\phi, y = r\sin\theta\sin\phi, z = r\cos\theta$\\
 $\vec{L} = \vec{r} \times \vec{p} = -i\hbar\vec{r} \times \nabla = -i\hbar\vec{e}_r \times \nabla$
@@ -354,9 +349,11 @@ $[A,BC]=B[A,C]+[A,B]C$\\
     \includegraphics[width=0.32\textwidth]{images/28.png}
     \vspace{-0.6cm}
 \end{figure}
+对于势垒穿透问题,$\hat{x},\hat{T},\hat{H}$彼此不对易，
+H、T、V彼此不对易，但是平均值满足$\bar{H} = \bar{T} + \bar{V}$\\
 线性谐振子零点能\yellowback{证明}：
 \begin{figure}[H]
-    \vspace{-0.5cm}
+    % \vspace{-0.5cm}
     \centering
     \includegraphics[width=0.32\textwidth]{images/3.png}
     \vspace{-0.6cm}
@@ -538,11 +535,11 @@ $j=0,1,2,\dots or \frac{1}{2},\frac{3}{2},\dots, m=-j,-j+1,\dots,j$\\
 \end{figure}
 
 \redtext{其他}：\\
-$\int_{-\infty}^{+\infty}e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}$\\
-$\int_{0}^{+\infty}x^ne^{-ax}dx = \frac{n!}{a^{n+1}}$\\
+$\int_{-\infty}^{+\infty}e^{-a{(x+ix_0)}^2}dx = \sqrt{\frac{\pi}{a}}$\\
+$\int_{0}^{+\infty}x^{n}e^{-ax}dx = \frac{n!}{a^{n+1}}$\\
 $\int_{0}^{+\infty}x^{2n}e^{-ax^2}dx = \frac{(2n-1)!!}{2^{n+1}}\sqrt{\frac{\pi}{a^{2n+1}}}$\\
 $\int_{0}^{+\infty}x^{2n-1}e^{-ax^2}dx = \frac{(n-1)!}{2a^{n}}$\\
-$\int_{-\infty}^{+\infty}cos(wx)e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}e^{-\frac{w^2}{4a}}$\\
+$\int_{-\infty}^{+\infty} \cos(wx)e^{-ax^2}dx = \sqrt{\frac{\pi}{a}}e^{-\frac{w^2}{4a}}$\\
 散度定理$\int_V \nabla\cdot\vec{A}dV = \oint_S \vec{A}\cdot d\vec{S}$\\
 旋度定理$\int_S \nabla\times\vec{A}\cdot d\vec{S} = \oint_C \vec{A}\cdot d\vec{l}$\\
 \end{multicols}
