@@ -1,2 +1,7 @@
 
 .codegpt
+# LaTeX intermediate files
+*.aux
+*.log
+*.out
+*.synctex.gz
