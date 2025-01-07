@@ -55,6 +55,30 @@
 \bluetext{无简并的微扰论}：能级一级修正：$E_n^{(1)} = H_{nn}' = \int \psi_n^{(0)*} \hat{H}'\psi_n^{(0)} \mathrm{d}\tau$；能级二级修正：$E_n^{(2)} = \sum_k \frac{|H_{kn}'|^2}{E_n^{(0)}-E_k^{(0)}}$；波函数一级修正：$\psi_n^{(1)}(x) = \sum_{k\neq n} \frac{H_{kn}'}{E_n^{(0)}-E_k^{(0)}} \psi_k^{(0)}(x)$。
 
 \greentext{推导过程}
+一级微扰推导：一级方程两边左乘 $\psi_n^{(0)*}$ 并积分：
+$\langle\psi_n^{(0)}|(\hat{H}^{(0)}-E_n^{(0)})|\psi_n^{(1)}\rangle = -\langle\psi_n^{(0)}|(\hat{H}'-E_n^{(1)})|\psi_n^{(0)}\rangle$
+得到：$0 = -(H'_{nn}-E_n^{(1)})$，$H'_{nn} $见上方，
+因此 $E_n^{(1)} = H'_{nn}$
+
+一级波函数推导：一级方程两边左乘 $\psi_k^{(0)*}$ 并积分：
+
+由 $\int\psi_k^{(0)*}\psi_m^{(0)}(x)\mathrm{d}x=\delta_{km}$
+对 $k\neq n$，得 $(E_n^{(0)}-E_k^{(0)})\langle\psi_k^{(0)}|\psi_n^{(1)}\rangle = \langle\psi_k^{(0)}|\hat{H}'|\psi_n^{(0)}\rangle = H'_{kn}$
+
+$a_{nk}^{(1)} = \langle\psi_k^{(0)}|\psi_n^{(1)}\rangle = {H'_{kn}}/({E_n^{(0)}-E_k^{(0)}})$
+
+代入 $\psi_n^{(1)} = \sum_m' a_{nm}^{(1)}\psi_m^{(0)}$
+
+二级能级推导：一级波函数修正带入二级方程得到：
+$(\hat{H}^{(0)} - E_n^{(0)})\psi_n^{(2)} = -\sum_m' \frac{H'_{mn}}{E_n^{(0)} - E_m^{(0)}} \hat{H}'\psi_m^{(0)} + E_n^{(1)}\sum_m' \frac{H'_{mn}}{E_n^{(0)} - E_m^{(0)}} \psi_m^{(0)} + E_n^{(2)}\psi_n^{(0)}$
+
+利用正交性和左乘 $\psi_n^{(0)}$ 积分得到:
+$0 = -\sum_m' \frac{H'_{mn}}{E_n^{(0)} - E_m^{(0)}} \int \psi_n^{(0)*} \hat{H}'\psi_m^{(0)} dt + E_n^{(2)}$
+
+其中 $\int \psi_n^{(0)*} \hat{H}'\psi_m^{(0)} dt = H'_{nm}$
+最终的二级微扰能量表达式:
+$E_n^{(2)} = \sum_m' \frac{H'_{mn}H'_{nm}}{E_n^{(0)} - E_m^{(0)}}$
+且$H'_{nm} = (H'_{mn})^*$
 
 \bluetext{带有简并的微扰论}：
 
@@ -67,20 +91,32 @@
 \redtext{量子跃迁}
 
 从一个能量本征态跃迁到另一个能量本征态，同时放出或吸收一定的能量。无扰动时无跃迁，有扰动时有跃迁。代入薛定谔方程：
-
 $i\hbar\frac{\partial\Psi}{\partial t} = (\hat{H}_0 + \hat{H}'(t))\Psi(t)$
 
-将 $\Psi$ 按 $\hat{H}_0$ 本质函数系 $\{\phi_n\}$ 展开，$\Psi(x,t) = \sum_n c_n(t)\phi_n(x)$，$|c_m(t)|^2$ 是 $|k\rangle \to |m\rangle$ 的跃迁几率。设 $c_n(t) = a_n(t)\exp\{-\frac{iE_n t}{\hbar}\}$，可以得到严格方程：
-$i\hbar\frac{\mathrm{d}}{\mathrm{d}t}a_m(t) = \sum_n H'_{mn}(t)e^{i\omega_{mn}t}a_n(t)$
+将 $\Psi$ 按 $\hat{H}_0$ 本质函数系 $\{\phi_n\}$ 展开，$\Psi(x,t) = \sum_n c_n(t)\phi_n(x)$，$|c_m(t)|^2$ 是 $|k\rangle \to |m\rangle$ 的跃迁几率。设 $c_n(t) = a_n(t)\exp\{-\frac{iE_n t}{\hbar}\}$，
+
+带入得到
+$i\hbar\sum_n \dot{a}_n(t)\exp(-\frac{iE_nt}{\hbar})\phi_n =$\\$ \sum_n a_n(t)\exp(-\frac{iE_nt}{\hbar})\hat{H}'(t)\phi_n$，
+两边左乘$\phi_m^*$利用正交性 $\langle\phi_m|\phi_n\rangle = \delta_{mn}$ 得到严格方程：
+$i\hbar\dot{a}_m(t) = \sum_n H'_{mn}(t)e^{i\omega_{mn}t}a_n(t)$
 
 其中 $\omega_{mn} = \frac{1}{\hbar}(E_m - E_n)$ 为固有角频率。
 
-\greentext{严格方程推导过程}
+\bluetext{含时间微扰法}：
+系数展开:
+$a_m(t) = a_m^{(0)} + a_m^{(1)}(t) + ...$
+零级近似:
+$i\hbar\frac{da_m^{(0)}}{dt} = 0 \Rightarrow a_m^{(0)}(t) = a_m^{(0)}(0)$
 
-\bluetext{含时间微扰法}：$a_m^{(t)} = a_m^{(0)} + a_m^{(1)}(t) = \delta_{mk} + a_m^{(1)}(t)$，对 $m \neq k$，$a_m(t) = a_m^{(1)}(t) = \frac{1}{i\hbar}\int_0^t H'_{mk}(t')e^{i\omega_{mk}t'} \mathrm{d}t'$，跃迁几率（处于 $m$ 态的几率）为 $W_{k\to m} = |a_m(t)|^2$，跃迁速率为 $w = \frac{\mathrm{d}}{{\mathrm{d}t}}|a_m(t)|^2$ 决定了光谱线相对强度。
+初始条件: $a_n^{(0)} = a_n^{(0)}(0) = \delta_{nk}$
+
+一级近似:
+$i\hbar\frac{da_m^{(1)}}{dt} = \sum_n H'_{mn}(t)e^{i\omega_{mn}t}a_n(0) = H'_{mk}(t')e^{i\omega_{mk}t}$
+积分得:
+对 $m \neq k$，$a_m(t) = a_m^{(1)}(t) = \frac{1}{i\hbar}\int_0^t H'_{mk}(t')e^{i\omega_{mk}t'} \mathrm{d}t'$，
+
+跃迁几率（处于 $m$ 态的几率）为 $W_{k\to m} = |a_m(t)|^2$，跃迁速率为 $w = \frac{\mathrm{d}}{{\mathrm{d}t}}|a_m(t)|^2$ 决定了光谱线相对强度。
 玻尔理论只能给出谱线频率
-
-\greentext{跃迁几率推导过程}
 
 \bluetext{光驱动原子的电偶极跃迁}
 
@@ -126,7 +162,23 @@ $\tau = \frac{\Delta A}{|\frac{d\overline{A}}{dt}|} = \frac{\Delta A}{\frac{1}{\
 
 \bluetext{两个全同粒子系统}
 
-分离变量形式特解 $\psi(q_1,q_2) = \psi_1(q_1)\psi_2(q_2)$ 不满足全同性要求，将其对称化(反对称化)处理：$\psi_{\pm}(q_1,q_2) = C[\psi_1(q_1)\psi_2(q_2) \pm \psi_1(q_2)\psi_2(q_1)]$，这个形式是唯一的\greentext{证明}。
+分离变量形式特解 $\psi(q_1,q_2) = \psi_1(q_1)\psi_2(q_2)$ 不满足全同性要求，将其对称化(反对称化)处理：$\psi_{\pm}(q_1,q_2) = C[\psi_1(q_1)\psi_2(q_2) \pm \psi_1(q_2)\psi_2(q_1)]$，
+
+\greentext{证明这个形式是唯一的}
+
+(1) 设波函数:
+$\psi(q_1,q_2) = c_1\psi_1(q_1)\psi_2(q_2) + c_2\psi_1(q_2)\psi_2(q_1)$
+
+(2) 交换性质:
+$\psi(q_2,q_1) = C\psi(q_1,q_2), (C = \pm1)$
+
+(3) 代入求解:
+$(c_1 - Cc_2)\psi_1(q_2)\psi_2(q_1) + (c_2 - Cc_1)\psi_1(q_1)\psi_2(q_2) = 0$
+(4) 解得:
+$c_2 = Cc_1 = \pm c_1$
+
+(5) 最终形式:
+$\psi(q_1,q_2) = C'[\psi_1(q_1)\psi_2(q_2) \pm \psi_1(q_2)\psi_2(q_1)]$
 
 \bluetext{Pauli 不相容原理}
 
@@ -140,6 +192,21 @@ $\tau = \frac{\Delta A}{|\frac{d\overline{A}}{dt}|} = \frac{\Delta A}{\frac{1}{\
 –中子星（存在简并压强）。
 
 \greentext{Bose/Fermi 性质的不变性证明}
+
+设含时薛定谔方程:
+$i\hbar\frac{\partial\Psi}{\partial t} = H(q_1,q_2,...)\Psi(t,q_1,q_2,...)$
+
+两个条件:
+1) $H(q_2,q_1,...) = H(q_1,q_2,...)$
+2) $\Psi(t,q_2,q_1,...) = C\Psi(t,q_1,q_2,...)$ $(C = \pm1)$
+
+由此可得:
+$\frac{\partial\Psi(t,q_2,q_1,...)}{\partial t} = C\frac{\partial\Psi(t,q_1,q_2,...)}{\partial t}$
+
+时间演化:
+$\Psi(t+dt,q_2,q_1,...) = \Psi(t,q_2,q_1,...) + \frac{\partial\Psi(t,q_2,q_1,...)}{\partial t}dt$
+$= C\Psi(t,q_1,q_2,...) + C\frac{\partial\Psi(t,q_1,q_2,...)}{\partial t}dt$
+$= C\Psi(t+dt,q_1,q_2,...)$
 
 \bluetext{全同粒子的性质}
 
@@ -215,6 +282,82 @@ $\frac{\partial}{\partial n_i}\ln W_F\{n_i\} \approx \ln(\frac{g_i}{n_i} - 1)$�
 
 \bluetext{熵统计意义}：$\mathrm{d}S = k\mathrm{d}(\ln W_{sm}\{n_i\})$，$S = k\ln W_s\{n_i\}$
 
-推导过程：先有 $\overline{\mathrm{d}Q} = \frac{N}{\beta}\mathrm{d}(\ln z - \beta\frac{\partial\ln z}{\partial\beta})$，再根据 $\ln W_{sm}\{n_i\} = \sum_i (n_i\ln g_i - \ln n_i!)|_{n_i=g_i\exp\{-\alpha-\beta\varepsilon_i\}} \approx \sum_i [n_i\ln g_i - n_i(\ln n_i-1)] \approx \sum_i [n_i\ln \frac{g_i}{n_i} + n_i]|_{\frac{g_i}{n_i}=\exp\{\alpha+\beta\varepsilon_i\}} = \sum_i n_i(\alpha + \beta\varepsilon_i + 1) = N\alpha + \beta E + N = N(\ln z - \beta\frac{\partial\ln z}{\partial\beta}) + N(1-\ln N)$，两边乘 $k$ 对比即得。
+\greentext{推导过程}：先有 $\overline{\mathrm{d}Q} = \frac{N}{\beta}\mathrm{d}(\ln z - \beta\frac{\partial\ln z}{\partial\beta})$，再根据 
+
+$\ln W_{sm}\{n_i\} = \sum_i (n_i\ln g_i - \ln n_i!)|_{n_i=g_i\exp\{-\alpha-\beta\varepsilon_i\}} \approx \sum_i [n_i\ln g_i - n_i(\ln n_i-1)] \approx \sum_i [n_i\ln \frac{g_i}{n_i} + n_i]|_{\frac{g_i}{n_i}=\exp\{\alpha+\beta\varepsilon_i\}} = \sum_i n_i(\alpha + \beta\varepsilon_i + 1) = N\alpha + \beta E + N = N(\ln z - \beta\frac{\partial\ln z}{\partial\beta}) + N(1-\ln N)$，两边乘 $k$ 对比即得。
+
+\bluetext{量子态的相体积}: 在能量准连续的条件下，对于量子数足够大的状态，一个量子态在 $\mu$ 空间中对应 $h^r$ 的相体积，$r$ 是粒子的自由度数。能级准连续近似成立的条件为 $\frac{\Delta \varepsilon_i}{kT} \ll 1$。
+
+\bluetext{态密度}: 设相空间中能量曲面 $\varepsilon$ 包围的体积为 $\Omega(\varepsilon)$，则 $\varepsilon$ 到 $\varepsilon + \mathrm{d}\varepsilon$ 能量间隔内的量子态数目是 $g(\varepsilon)\mathrm{d}\varepsilon = -\frac{\mathrm{d}\Omega(\varepsilon)}{h^r}J$，$J$ 是内部简并度，对基本粒子 $J$ 是自旋简并度。
+
+\bluetext{理想气体}: 近独立粒子组成、符合半经典分布，能级准连续情况下有: $n(\varepsilon)\mathrm{d}\varepsilon = g(\varepsilon)e^{-\alpha-\beta\varepsilon}\mathrm{d}\varepsilon$。对于 $n$ 维单原子理想气体有: $z(\beta,V) = \int_0^{\infty}e^{-\beta\varepsilon}g(\varepsilon)\mathrm{d}\varepsilon = \frac{V}{h^n}\left(\frac{2\pi m}{\beta}\right)^{n/2}$。
+
+\bluetext{直接用相空间计算配分函数}: $\varepsilon = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{p_z^2}{2m} + U(x,y,z)$, $z(\beta,V) = \frac{1}{h^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}\cdot\int e^{-\beta U(x,y,z)}\mathrm{d}x\mathrm{d}y\mathrm{d}z$。
+
+\bluetext{Boltzmann统计模型}
+\begin{figure}[H]
+    \vspace{-0.3cm}
+    \centering
+    \includegraphics[width=0.33\textwidth]{images/3.png}
+    \vspace{-0.6cm}
+\end{figure}
+
+\bluetext{Bose/Fermi 统计公式}: 上Bose, 下Fermi,
+
+$\ln W\{n_i\} = \sum_i \left[n_i\ln\left(\frac{g_i}{n_i}\right) \pm 1\right] \pm g_i\ln\left(1 \pm \frac{n_i}{g_i}\right)$,
+$\Phi(\alpha,\beta,V) = \mp \sum_i g_i\ln\left(1 \mp e^{-\alpha-\beta\varepsilon_i}\right)$,
+
+$N = -\frac{\partial\Psi}{\partial\alpha}$, $E = -\frac{\partial\Psi}{\partial\beta}$, $P = \frac{1}{\beta}\frac{\partial\Psi}{\partial V}$, $S = k\left(\Psi - \alpha\frac{\partial\Psi}{\partial\alpha} - \beta\frac{\partial\Psi}{\partial\beta}\right)$。
+
+\bluetext{玻色-爱因斯坦凝聚 (BEC)}: Bose 气体在低于某临界温度时，气体中大部分粒子凝聚在最低能级。其化学势 $\mu < 0$，$T$ 越小化学势越高，越接近于 $0-$。临界温度: $T_c = \frac{h^2}{2\pi mk}\left(\frac{n}{2.612}\right)^{2/3}$ 即 $n\lambda^3(T=T_c) = 2.612$，$\lambda = \frac{h}{p} = \frac{h}{\sqrt{2\pi mkT}}$。
+
+$N = \int_0^{\infty}\frac{g(\varepsilon)d\varepsilon}{e^{\varepsilon/kT_c}-1} = \frac{2\pi V(2m)^{3/2}}{h^3}\int_0^{\infty}\frac{\sqrt{\varepsilon}d\varepsilon}{e^{\varepsilon/kT_c}-1}=$
+
+$\frac{2\pi V}{h^3}(2mkT_c)^{3/2}\int_0^{\infty}\frac{\sqrt{x}dx}{e^x-1} = 2.612V\left(\frac{2\pi mkT_c}{h^2}\right)^{3/2}$
+
+即可解出临界温度。
+
+\bluetext{光子气体}: 腔内场域腔壁不断作用达到热平衡态，温度为 $T$。光子静止质量为零，能量和动量满足 $\varepsilon = cp$，$J = 2$。光子数不守恒！
+
+$n_i = \frac{g_i}{e^{\beta\varepsilon_i}-1}$，$g(\nu)d\nu = \frac{4\pi JV}{c^3}\nu^2d\nu$，$n(\nu)d\nu = \frac{4\pi JV}{c^3}\frac{\nu^2}{e^{h\nu/kT}-1}d\nu$，
+Planck 公式: $\bar{E}(\nu,T)d\nu = h\nu n(\nu)d\nu = \frac{4\pi JV}{c^3}\frac{h\nu^3}{e^{h\nu/kT}-1}d\nu$，
+总光子数: $N=\int_0^{\infty}n(\nu)d\nu=4\pi JV \times 2.404\left(\frac{kT}{hc}\right)^3$，
+总能量: $\bar{E} = bVT^4$，总能量密度: $u = \frac{\bar{E}}{V} = bT^4$，总面辐射强度: $J = \frac{1}{4}cu = \sigma T^4$，其中 $b = \frac{8\pi^5k^4}{15(hc)^3}$、$\sigma = \frac{2\pi^5k^4}{15h^3c^2}$。
+
+\bluetext{声子气体}：声子不断产生和消灭，能量和动量满足: $\varepsilon = vp$，横波 $J = 2$，纵波 $J = 1$。总声子数不守恒！根据总模式数只有 $3N$ 个, $\int_0^{\nu_D} g(\nu)d\nu = 3N$ 可以得到德拜频率。特征温度 $\theta_D = \frac{h\nu_D}{k}$，$\bar{n_i} = \frac{g_i}{e^{h\nu_i/kT}-1}$。$n(\nu)d\nu = \frac{g(\nu)d\nu}{e^{\beta h\nu}-1}$，
+
+\begin{figure}[H]
+    \vspace{-0.3cm}
+    \centering
+    \includegraphics[width=0.33\textwidth]{images/4.png}
+    \vspace{-0.6cm}
+\end{figure}
+\begin{figure}[H]
+    \vspace{-0.3cm}
+    \centering
+    \includegraphics[width=0.33\textwidth]{images/5.png}
+    \vspace{-0.6cm}
+\end{figure}
+
+\bluetext{Fermi 气体}: 以电子气体为例，$J = 2$，计算 Fermi 能级时利用 $T \to 0$ 时 $\mu_0 = \varepsilon_F$，$N = \int_0^{\mu_0}g(\varepsilon)d\varepsilon$，$\bar{E_0} = \int_0^{\mu_0}\varepsilon g(\varepsilon)d\varepsilon$。
+
+非相对论情况:
+
+$n_i = \frac{g_i}{e^{\alpha+\beta\varepsilon_i}+1}$，
+$g(\varepsilon) = J\frac{2\pi V(2m)^{3/2}}{h^3}\sqrt{\varepsilon}$，$\varepsilon_F = \frac{h^2}{2m}\left(\frac{3}{4\pi J}\frac{N}{V}\right)^{2/3}$，
+$N = \frac{4\pi JV(2m)^{3/2}}{3h^3}\varepsilon_F^{3/2}$，
+
+$\bar{E_0} = \frac{3}{5}N\varepsilon_F$，$\bar{P_0} = \frac{2}{3}\frac{\bar{E_0}}{V}$，$\bar{\varepsilon_0} = \frac{3}{5}\varepsilon_F$
+
+$C_V = \frac{\pi^2}{2}Nk\left(\frac{kT}{\mu_0}\right) = \frac{\pi^2}{2}Nk\left(\frac{T}{T_F}\right)$，
+
+近似解法: $\Delta\bar{E} \approx N\cdot\frac{kT}{\mu_0}\cdot 2kT$，$C_V = 4Nk\left(\frac{T}{T_F}\right)$。
+
+相对论情况:
+
+$n_i = \frac{g_i}{e^{\alpha+\beta\varepsilon_i}+1}$，$g(\varepsilon) = J\frac{4\pi V}{(hc)^3}\varepsilon^2$，
+
+$\varepsilon_F = hc\left(\frac{3N}{4\pi JV}\right)^{\frac{1}{3}}$，
+$N = \frac{4\pi JV}{3(hc)^3}\varepsilon_F^3$，$\bar{E_0} = \frac{3}{4}N\varepsilon_F$，$\bar{P_0} = \frac{1}{3}\frac{\bar{E_0}}{V}$。
 \end{multicols}
 \end{document}
