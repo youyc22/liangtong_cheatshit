@@ -43,6 +43,7 @@
 \raggedcolumns
 \begin{document}
 \begin{multicols}{3}
+\setlength{\columnsep}{0.1cm} 
 
 \redtext{定态微扰论}
 
@@ -74,12 +75,12 @@ $i\hbar\frac{\mathrm{d}}{\mathrm{d}t}a_m(t) = \sum_n H'_{mn}(t)e^{i\omega_{mn}t}
 
 其中 $\omega_{mn} = \frac{1}{\hbar}(E_m - E_n)$ 为固有角频率。
 
-严格方程\greentext{推导过程}
+\greentext{严格方程推导过程}
 
 \bluetext{含时间微扰法}：$a_m^{(t)} = a_m^{(0)} + a_m^{(1)}(t) = \delta_{mk} + a_m^{(1)}(t)$，对 $m \neq k$，$a_m(t) = a_m^{(1)}(t) = \frac{1}{i\hbar}\int_0^t H'_{mk}(t')e^{i\omega_{mk}t'} \mathrm{d}t'$，跃迁几率（处于 $m$ 态的几率）为 $W_{k\to m} = |a_m(t)|^2$，跃迁速率为 $w = \frac{\mathrm{d}}{{\mathrm{d}t}}|a_m(t)|^2$ 决定了光谱线相对强度。
 玻尔理论只能给出谱线频率
 
-跃迁几率\greentext{推导过程}
+\greentext{跃迁几率推导过程}
 
 \bluetext{光驱动原子的电偶极跃迁}
 
@@ -123,6 +124,97 @@ $\tau = \frac{\Delta A}{|\frac{d\overline{A}}{dt}|} = \frac{\Delta A}{\frac{1}{\
 \bluetext{Bose 子与 Fermi 子}
 交换任意两个粒子的全部坐标(空间坐标+自旋坐标)，$\Psi(\cdots,q_i,\cdots,q_j,\cdots)=C\Psi(\cdots,q_j,\cdots,q_i,\cdots)$，交换对称 $(C=+1)$ 称为 Bose 子，交换反对称 $(C=-1)$ 称为 Fermi 子。Bose 子自旋 $s$ 为整数 (例如光子自旋 1、介子自旋 0)，Fermi 子自旋 $s$ 为半整数 (例如电子、质子、中子自旋 1/2)。复合粒子取决于总自旋 (例如中性原子取决于中子数，偶为 Bose，奇为 Fermi)。
 
+\bluetext{两个全同粒子系统}
 
+分离变量形式特解 $\psi(q_1,q_2) = \psi_1(q_1)\psi_2(q_2)$ 不满足全同性要求，将其对称化(反对称化)处理：$\psi_{\pm}(q_1,q_2) = C[\psi_1(q_1)\psi_2(q_2) \pm \psi_1(q_2)\psi_2(q_1)]$，这个形式是唯一的\greentext{证明}。
+
+\bluetext{Pauli 不相容原理}
+
+不可能有两个或更多的费米子处于完全相同的单粒子态中
+
+重要体现，如
+–元素周期表的物理根源（电子是费米子，每
+个壳层能够容纳的电子数有限）；
+–固体中的能带填充（存在满带和不满带）
+–电子束无法像激光那样输出
+–中子星（存在简并压强）。
+
+\greentext{Bose/Fermi 性质的不变性证明}
+
+\bluetext{全同粒子的性质}
+
+例子：一维无限深势阱中有两个电子TODO
+
+一般含时间解由所有定态解叠加生成，自然也满足交换反对称性
+
+例一：等效吸引和等效排斥作用
+
+例二：两粒子占据两个正交单粒子态，有多少种可能情况
+
+\redtext{混合态}
+
+不能确切地知道状态波函数的情况下，只能借助于统计方法描述系统的状态，不是叠加态(叠加态有确定的波函数，混合态只能给出波函数的概率分布)。$\langle F \rangle = \sum_{\psi} P_{\psi}\langle F \rangle_{\psi} = \sum_{\psi} P_{\psi} \langle\psi| F |\psi\rangle$。
+
+纯态例子 $|\psi\rangle=\sum_{n}c_n|\psi_n\rangle$
+
+$\langle F \rangle=\langle\psi|F|\psi\rangle$
+$=\sum_{mn}c_m^*c_n\langle\psi_m|F|\psi_n\rangle$
+$=\sum_n|c_n|^2\langle\psi_n|F|\psi_n\rangle+\sum_{mn}^\prime c_m^*c_n\langle\psi_m|F|\psi_n\rangle$
+
+\bluetext{密度算符}
+
+纯态: $\rho \equiv |\psi\rangle \langle\psi|$，定义 $\operatorname{tr}(A) \equiv \sum_{n}\langle n|A|n\rangle$，则有 $\operatorname{tr}(F\rho) = \operatorname{tr}(\rho F) = \langle F \rangle$；混合态：$\rho \equiv \sum_{\psi} P_{\psi}|\psi\rangle \langle\psi|$，则有 $\langle F \rangle \equiv \operatorname{tr}(F\rho)$。运动学方程：$\frac{\mathrm{d}}{\mathrm{d}t}\rho = \frac{1}{i\hbar}[H,\rho]$。
+
+\redtext{热力学公式}
+
+- 热力学第一定律：闭系：$\mathrm{d}E = \overline{\mathrm{d}Q} + \overline{\mathrm{d}W} = \overline{\mathrm{d}Q} - P\mathrm{d}V$；开系：$\mathrm{d}E = \overline{\mathrm{d}W} + \overline{\mathrm{d}Q} + \sum_i \mu_i\mathrm{d}n_i$。
+
+- 热容量：$C_V = \left(\frac{\partial E}{\partial T}\right)_V$，$C_P = \left(\frac{\partial H}{\partial T}\right)_P$，其中 $H = E + PV$。
+
+- 热力学第二定律：$\mathrm{d}S \geq \frac{\overline{\mathrm{d}Q}}{T}$，可逆过程时取等号。Clausius 表述：不可能把热量从低温物体传到高温物体而不引起其他变化。Kelvin 表述：不可能从单一热源取得热量使之完全变成有用功而不引起其他变化。
+
+- 热力学基本函数：$H = E + PV$，$F = E - TS$，$G = E + PV - TS$。
+
+- 重要的微分式：$\mathrm{d}E = T\mathrm{d}S-P\mathrm{d}V$，$\mathrm{d}H = T\mathrm{d}S+V\mathrm{d}P$，$\mathrm{d}F = -S\mathrm{d}T-P\mathrm{d}V$，$\mathrm{d}G = -S\mathrm{d}T + V\mathrm{d}P$。
+
+- 麦克斯关系：$\left(\frac{\partial T}{\partial V}\right)_S = -\left(\frac{\partial P}{\partial S}\right)_V$，$\left(\frac{\partial T}{\partial P}\right)_S = \left(\frac{\partial V}{\partial S}\right)_P$，$\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial P}{\partial T}\right)_V$，$\left(\frac{\partial S}{\partial P}\right)_T = -\left(\frac{\partial V}{\partial T}\right)_P$。
+
+- 理想气体熵变计算公式：$S(f) - S(i) = C_V \ln\left(\frac{T_f}{T_i}\right) + Nk\ln\left(\frac{V_f}{V_i}\right)$。
+
+- 化学势：$\mu = \left(\frac{\partial E}{\partial N}\right)_{S,V} = \left(\frac{\partial H}{\partial N}\right)_{S,P} = \left(\frac{\partial F}{\partial N}\right)_{S,P} = \left(\frac{\partial F}{\partial N}\right)_{T,V} = \left(\frac{\partial G}{\partial N}\right)_{T,P}$。
+
+\bluetext{Language乘子法}
+
+结合粒子数守恒($\sum_i n_i = N$)和能量守恒($\sum_i n_i\varepsilon_i = E$)，优化 $F = \ln W\{n_i\} + \alpha(N-\sum_i n_i) + \beta(E-\sum_i n_i\varepsilon_i)$ 可以得到最可几分布。$\alpha = -\frac{\mu}{kT}$，$\beta = \frac{1}{kT}$。
+
+$\ln W_B\{n_i\} \approx \sum_i [(n_i + g_i)\ln(n_i + g_i) - n_i \ln n_i - g_i \ln g_i]$
+$\frac{\partial}{\partial n_i}\ln W_B\{n_i\} \approx \ln(\frac{g_i}{n_i} + 1)$，
+
+$\ln W_F\{n_i\} \approx \sum_i [g_i \ln g_i - n_i \ln n_i - (g_i - n_i)\ln(g_i - n_i)]$
+$\frac{\partial}{\partial n_i}\ln W_F\{n_i\} \approx \ln(\frac{g_i}{n_i} - 1)$，
+
+进而由 $\frac{\partial F}{\partial n_i} = 0$ 有 $\ln(1 \pm \frac{g_i}{n_i}) - \alpha - \beta\varepsilon_i = 0$ 即得最可几分布。
+
+\bluetext{四种统计}
+
+\begin{figure}[H]
+    \vspace{-0.3cm}
+    \centering
+    \includegraphics[width=0.33\textwidth]{images/1.png}
+    \vspace{-0.6cm}
+\end{figure}
+
+\bluetext{配分函数}：定义配分函数$z=\sum_i g_i e^{-\beta\varepsilon_i}$
+
+\begin{figure}[H]
+    \vspace{-0.3cm}
+    \centering
+    \includegraphics[width=0.33\textwidth]{images/2.png}
+    \vspace{-0.6cm}
+\end{figure}
+
+\bluetext{熵统计意义}：$\mathrm{d}S = k\mathrm{d}(\ln W_{sm}\{n_i\})$，$S = k\ln W_s\{n_i\}$
+
+推导过程：先有 $\overline{\mathrm{d}Q} = \frac{N}{\beta}\mathrm{d}(\ln z - \beta\frac{\partial\ln z}{\partial\beta})$，再根据 $\ln W_{sm}\{n_i\} = \sum_i (n_i\ln g_i - \ln n_i!)|_{n_i=g_i\exp\{-\alpha-\beta\varepsilon_i\}} \approx \sum_i [n_i\ln g_i - n_i(\ln n_i-1)] \approx \sum_i [n_i\ln \frac{g_i}{n_i} + n_i]|_{\frac{g_i}{n_i}=\exp\{\alpha+\beta\varepsilon_i\}} = \sum_i n_i(\alpha + \beta\varepsilon_i + 1) = N\alpha + \beta E + N = N(\ln z - \beta\frac{\partial\ln z}{\partial\beta}) + N(1-\ln N)$，两边乘 $k$ 对比即得。
 \end{multicols}
 \end{document}
