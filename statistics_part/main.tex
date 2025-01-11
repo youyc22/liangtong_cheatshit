@@ -28,7 +28,7 @@
 \setlength{\belowdisplayshortskip}{2pt}
 
 % 设置段落间距
-\setlength{\parskip}{0.4ex}
+\setlength{\parskip}{0.3ex}
 
 % 定义蓝色、红色文本、背景色
 \newcommand{\bluetext}[1]{\textcolor{blue}{#1}}
@@ -131,7 +131,7 @@ $|m\rangle$ 和 $|k\rangle$ 两态宇称相反，进一步考虑角动量选择�
 
 微扰法成立的必要条件：$|a_m^{(1)}(t)|^2\ll 1$，尖锐共振$\omega_{mk}-\omega=0$且t足够大时微扰法失效，需要严格求解(Rabi震荡)；微扰法对于通常的弱光在非共振情况一般是适用的。
 
-\bluetext{Rabi震荡（非微扰理论）}
+\bluetext{Rabi震荡(非微扰理论)}
 
 考虑较强的激光与原子共振或近共振
 初始态条件：$a_1(0) = 1$；$a_2(0) = 0$，忽略非共振项：
@@ -234,11 +234,15 @@ $=\sum_n|c_n|^2\langle\psi_n|F|\psi_n\rangle+\sum_{mn}^\prime c_m^*c_n\langle\ps
 
 \redtext{热力学公式}
 
+- 热力学第零定律（热平衡原理）
+
 - 热力学第一定律：闭系：$\mathrm{d}E = \overline{\mathrm{d}Q} + \overline{\mathrm{d}W} = \overline{\mathrm{d}Q} - P\mathrm{d}V$；开系：$\mathrm{d}E = \overline{\mathrm{d}W} + \overline{\mathrm{d}Q} + \sum_i \mu_i\mathrm{d}n_i$。
 
 - 热容量：$C_V = \left(\frac{\partial E}{\partial T}\right)_V$，$C_P = \left(\frac{\partial H}{\partial T}\right)_P$，其中 $H = E + PV$。
 
 - 热力学第二定律：$\mathrm{d}S \geq \frac{\overline{\mathrm{d}Q}}{T}$，可逆过程时取等号。Clausius 表述：不可能把热量从低温物体传到高温物体而不引起其他变化。Kelvin 表述：不可能从单一热源取得热量使之完全变成有用功而不引起其他变化。
+
+- 热力学第三定律：不可能用有限次的步骤使系统的温度降低到绝对零度
 
 - 热力学基本函数：$H = E + PV$，$F = E - TS$，$G = E + PV - TS$。
 
@@ -250,19 +254,70 @@ $=\sum_n|c_n|^2\langle\psi_n|F|\psi_n\rangle+\sum_{mn}^\prime c_m^*c_n\langle\ps
 
 - 化学势：$\mu = \left(\frac{\partial E}{\partial N}\right)_{S,V} = \left(\frac{\partial H}{\partial N}\right)_{S,P} = \left(\frac{\partial F}{\partial N}\right)_{S,P} = \left(\frac{\partial F}{\partial N}\right)_{T,V} = \left(\frac{\partial G}{\partial N}\right)_{T,P}$。
 
+- 热力学能量方程$dE(T,V) = \left(\frac{\partial E}{\partial T}\right)_V dT + \left(\frac{\partial E}{\partial V}\right)_T dV = C_v dT + \left(\frac{\partial E}{\partial V}\right)_T dV$
+$C_P = \left(\frac{dQ}{dT}\right)_P =$ 
+
+$ \left(\frac{dE + PdV}{dT}\right)_P = \left[\frac{C_v dT + \left(\frac{\partial E}{\partial V}\right)_T dV + PdV}{dT}\right]_P$
+
+$= C_V + \left[P + \left(\frac{\partial E}{\partial V}\right)_T\right]\left(\frac{\partial V}{\partial T}\right)_P \Rightarrow \left(\frac{\partial E}{\partial V}\right)_T = (C_P - C_V)\left(\frac{\partial T}{\partial V}\right)_P - P$
+
+$dE(T,V) = C_V dT + \left[(C_P - C_V)\left(\frac{\partial T}{\partial V}\right)_P - P\right]dV$
+
+- 如果一个过程发生以后，我们有办法使它和它的外界同时回到
+初始态，这个过程称为可逆过程。
+
+- 可逆放热过程一定是熵减少的过程，自由绝热膨胀是不可逆过程，熵增加(构造可逆过程，$\Delta S=nRln(V_2/V_1)$)
+
+- \greentext{证明可逆热机效率最高}：假设热机B比可逆热机A效率更高，则可利用B所做的功的一部分推动A逆向运行（另一部分功输出到外界），而最后2个热机的工作物质
+和高温热源都没有变化，唯一变化是从单一（低温）热源吸取热量而全部变成了有用的功
+
+- \greentext{证明热机效率等于温度之比}
+
+$dQ = dE + PdV = C_v dT + PdV = 0$
+$ dT = \frac{PdV + VdP}{nR}$
+$\Rightarrow C_v \frac{PdV + VdP}{nR} + PdV = 0$ (1)
+
+$C_p - C_v = nR$
+$\gamma \equiv \frac{C_p}{C_v}$
+$\Rightarrow nR = C_v(\gamma-1)$
+
+$C_v \frac{PdV + VdP}{C_v(\gamma-1)} + PdV = 0 \rightarrow VdP + \gamma PdV = 0 \rightarrow \frac{dP}{P} + \gamma \frac{dV}{V} = 0$
+$\Rightarrow PV^\gamma = const$ (绝热方程)
+
+$(4 \rightarrow 1)$ $T_1V_1^{\gamma-1} = T_2V_4^{\gamma-1}$
+$(2 \rightarrow 3)$ $T_1V_2^{\gamma-1} = T_2V_3^{\gamma-1}$
+$\Rightarrow \frac{V_2}{V_1} = \frac{V_3}{V_4}$
+
+$Q_1 = \int_1^2 PdV = \int_1^2 \frac{nRT_1}{V}dV = nRT_1 \ln(\frac{V_2}{V_1})$
+
+$Q_2 = \int_3^4 PdV = -\int_3^4 \frac{nRT_2}{V}dV = nRT_2 \ln(\frac{V_3}{V_4})$
+
+$\eta = \frac{W}{Q_1} = \frac{Q_1-Q_2}{Q_1} = 1-\frac{Q_2}{Q_1} = 1-\frac{T_2}{T_1}$
+
+- \greentext{证明G(T,P,N)=Ng(T,P),即为化学势}
+$dE = TdS - PdV + \mu dN$
+$G = E + PV - TS$
+$dG = -SdT + VdP + \mu dN$
+$\mu = \left[\frac{\partial G}{\partial N}\right]_{T,P}$
+
 \bluetext{Language乘子法}
 
-结合粒子数守恒($\sum_i n_i = N$)和能量守恒($\sum_i n_i\varepsilon_i = E$)，优化 $F = \ln W\{n_i\} + \alpha(N-\sum_i n_i) + \beta(E-\sum_i n_i\varepsilon_i)$ 可以得到最可几分布。$\alpha = -\frac{\mu}{kT}$，$\beta = \frac{1}{kT}$。
-
+粒子数($\sum_i n_i = N$)和能量($\sum_i n_i\varepsilon_i = E$)，$F = \ln W\{n_i\} + \alpha(N-\sum_i n_i) + \beta(E-\sum_i n_i\varepsilon_i)$ 最可几分布。$\alpha(\mu,T) = -\frac{\mu}{kT}$，$\beta(T) = \frac{1}{kT}$。
+\greentext{证明：构造两个有能量交换和(无)物质交换的系统}
 $\ln W_B\{n_i\} \approx \sum_i [(n_i + g_i)\ln(n_i + g_i) - n_i \ln n_i - g_i \ln g_i]$
 $\frac{\partial}{\partial n_i}\ln W_B\{n_i\} \approx \ln(\frac{g_i}{n_i} + 1)$，
 
 $\ln W_F\{n_i\} \approx \sum_i [g_i \ln g_i - n_i \ln n_i - (g_i - n_i)\ln(g_i - n_i)]$
 $\frac{\partial}{\partial n_i}\ln W_F\{n_i\} \approx \ln(\frac{g_i}{n_i} - 1)$，
 
-进而由 $\frac{\partial F}{\partial n_i} = 0$ 有 $\ln(1 \pm \frac{g_i}{n_i}) - \alpha - \beta\varepsilon_i = 0$ 即得最可几分布。
+进而由 $\frac{\partial F}{\partial n_i} = 0$ 有 $\ln(1 \pm \frac{g_i}{n_i}) - \alpha - \beta\varepsilon_i = 0$ 即得
 
 \bluetext{四种统计}
+$e^{\alpha+\beta\varepsilon_i} \gg 1 \Rightarrow e^\alpha \gg 1$满足能级非简并条件
+等价于$n\lambda^3 \ll 1$，$\lambda = \frac{h}{p} = \frac{h}{\sqrt{2\pi mkT}}$
+代入单原子理想气体$e^\alpha = \frac{z}{N}$即证明
+
+满足可区分粒子或者$e^\alpha \gg 1$时，玻尔兹曼统计适用
 
 \begin{figure}[H]
     \vspace{-0.3cm}
@@ -280,7 +335,34 @@ $\frac{\partial}{\partial n_i}\ln W_F\{n_i\} \approx \ln(\frac{g_i}{n_i} - 1)$�
     \vspace{-0.6cm}
 \end{figure}
 
-\bluetext{熵统计意义}：$\mathrm{d}S = k\mathrm{d}(\ln W_{sm}\{n_i\})$，$S = k\ln W_s\{n_i\}$
+\bluetext{典型例子}：立方体容器中的气体
+$\varepsilon_i = $
+
+$\frac{\hbar^2}{2m}\left[\left(\frac{n_x\pi}{L}\right)^2 + \left(\frac{n_y\pi}{L}\right)^2 + \left(\frac{n_z\pi}{L}\right)^2\right] = A_iV^{-2/3}$
+
+$\frac{d\varepsilon_i}{dV} = -\frac{2}{3}A_iV^{-2/3-1} = -\frac{2}{3}\frac{\varepsilon_i}{V}$
+
+$P = \sum_i -\frac{d\varepsilon_i}{dV}n_i = \frac{2}{3V}\sum_i\varepsilon_in_i = \frac{2}{3}\frac{\bar{E}}{V}$
+
+\greentext{证明k是玻尔兹曼常数}
+
+由于$\beta$是$dQ$的积分因子, 设$\beta dQ = dS'$ (1)
+
+根据热力学, $dQ = TdS$, 代入(1)得:
+$dS' = \beta TdS$
+
+因$\beta = \beta(T)$, 可设$S' = S'(S,T)$,
+
+于是$dS' = \frac{\partial S'}{\partial S}dS + \frac{\partial S'}{\partial T}dT$
+
+得到$\beta T = \frac{\partial S'}{\partial S}$ (4)
+$\frac{\partial S'}{\partial T} = 0$
+
+设$S' = S'(S)$, $\frac{\partial S'}{\partial S} = f(S)$, 代入(4)得
+
+$\beta(T)T = f(S) =$ 常数 $(设为\frac{1}{k})$ $\rightarrow$ $\beta = \frac{1}{kT}$
+
+\bluetext{熵}：$\mathrm{d}S = k\mathrm{d}(\ln W_{sm}\{n_i\})$，$S = k\ln W_s\{n_i\}$
 
 \greentext{推导过程}：先有 $\overline{\mathrm{d}Q} = \frac{N}{\beta}\mathrm{d}(\ln z - \beta\frac{\partial\ln z}{\partial\beta})$，再根据 
 
@@ -288,26 +370,66 @@ $\ln W_{sm}\{n_i\} = \sum_i (n_i\ln g_i - \ln n_i!)|_{n_i=g_i\exp\{-\alpha-\beta
 
 \bluetext{量子态的相体积}: 在能量准连续的条件下，对于量子数足够大的状态，一个量子态在 $\mu$ 空间中对应 $h^r$ 的相体积，$r$ 是粒子的自由度数。能级准连续近似成立的条件为 $\frac{\Delta \varepsilon_i}{kT} \ll 1$。
 
-\bluetext{态密度}: 设相空间中能量曲面 $\varepsilon$ 包围的体积为 $\Omega(\varepsilon)$，则 $\varepsilon$ 到 $\varepsilon + \mathrm{d}\varepsilon$ 能量间隔内的量子态数目是 $g(\varepsilon)\mathrm{d}\varepsilon = -\frac{\mathrm{d}\Omega(\varepsilon)}{h^r}J$，$J$ 是内部简并度，对基本粒子 $J$ 是自旋简并度。
+\bluetext{态密度}: 相空间中能量曲面 $\varepsilon$ 包围体积为 $\Omega(\varepsilon)$，则 $\varepsilon$ 到 $\varepsilon + \mathrm{d}\varepsilon$ 能量间隔内量子态数目是 $g(\varepsilon)\mathrm{d}\varepsilon = \frac{\mathrm{d}\Omega(\varepsilon)}{h^r}J$，$J$ 是内部简并度，基本粒子为自旋简并度。
 
 \bluetext{理想气体}: 近独立粒子组成、符合半经典分布，能级准连续情况下有: $n(\varepsilon)\mathrm{d}\varepsilon = g(\varepsilon)e^{-\alpha-\beta\varepsilon}\mathrm{d}\varepsilon$。对于 $n$ 维单原子理想气体有: $z(\beta,V) = \int_0^{\infty}e^{-\beta\varepsilon}g(\varepsilon)\mathrm{d}\varepsilon = \frac{V}{h^n}\left(\frac{2\pi m}{\beta}\right)^{n/2}$。
 
-\bluetext{直接用相空间计算配分函数}: $\varepsilon = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{p_z^2}{2m} + U(x,y,z)$, $z(\beta,V) = \frac{1}{h^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}\cdot\int e^{-\beta U(x,y,z)}\mathrm{d}x\mathrm{d}y\mathrm{d}z$。
+\bluetext{相空间算配分函数}: $\varepsilon = \frac{p_x^2}{2m} + \frac{p_y^2}{2m} + \frac{p_z^2}{2m} + U(x,y,z)$, $z(\beta,V) = \frac{1}{h^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}\cdot\int e^{-\beta U(x,y,z)}\mathrm{d}x\mathrm{d}y\mathrm{d}z$
 
 \bluetext{Boltzmann统计模型}
-\begin{figure}[H]
-    \vspace{-0.3cm}
-    \centering
-    \includegraphics[width=0.33\textwidth]{images/3.png}
-    \vspace{-0.6cm}
-\end{figure}
+
+\textbf{三维单原子非相对论气体}:$\varepsilon = p^2/2m$，
+
+势阱模型：$\varepsilon_i = \frac{h^2}{8mL^2}(n_1^2+n_2^2+n_3^2)$
+$\Omega(\varepsilon) = \frac{4\pi V}{3}(2m\varepsilon)^{3/2}$，$g(\varepsilon)d\varepsilon = J\frac{2\pi V(2m)^{3/2}}{h^3}\sqrt{\varepsilon}d\varepsilon$,
+
+$z(\beta,V)=\frac{V}{h^3}\left(\frac{2\pi m}{\beta}\right)^{3/2}$,
+
+$lnz=\frac{3}{2}\ln \frac{2\pi m}{h^2} - \frac{3}{2}\ln\beta + \ln V$
+
+$E=-N\frac{\partial \ln z}{\partial \beta} = \frac{3}{2}\frac{N}{\beta} = \frac{3}{2}NkT$
+
+$P=\frac{N}{\beta}\frac{\partial \ln z}{\partial V} = \frac{NkT}{V}$
+
+$F(T,V) = -NkT(\frac{3}{2}\ln kT + \ln \frac{V}{N} + \frac{3}{2}\ln \frac{2\pi m}{h^2} + 1)$
+
+$S(T,V) = Nk(\frac{3}{2}\ln kT + \ln \frac{V}{N} + j + \frac{5}{2})$，$j = \frac{3}{2}\ln \frac{2\pi m}{h^2}$
+$\mu = kT(\ln \frac{N}{V} - \frac{3}{2}\ln kT - j)$
+
+\textbf{三维单原子光子气体}:
+$\varepsilon = cp$，势阱模型：$\varepsilon_i = \frac{hc}{2L}\sqrt{n_1^2+n_2^2+n_3^2}$，$C_V = 3Nk$
+$\Omega(\varepsilon) = \frac{4\pi V}{3c^3}\varepsilon^3$，$g(\varepsilon)d\varepsilon = J\frac{4\pi V}{(hc)^3}\varepsilon^2d\varepsilon$
+
+\textbf{三维双原子非相对论气体}:
+$C_V = C_V^t + C_V^r + C_V^v$（平动、转动、振动），其中 $C_V^t = \frac{3}{2}Nk$，$C_V^r = Nk$，$C_V^\nu = Nk\frac{x^2e^x}{(e^x-1)^2} \ll Nk$
+
+转动：$\Omega^r(\varepsilon^r) = 8\pi^2I\varepsilon^r$，$g^r(\varepsilon^r)d\varepsilon^r = \frac{8\pi^2I}{h^2}d\varepsilon^r$，$z^r(\beta) = \frac{8\pi^2I}{h^2}\frac{1}{\beta}$
+$\varepsilon_0^r = \frac{h^2}{8\pi^2I}$,特征温度为$\theta^r=\varepsilon_0^r/k$,准连续条件变为$\theta^r \ll T$
+
+振动：谐振子能级$\varepsilon=(n+1/2)h\nu$,$\theta^\nu = \frac{h\nu}{k}$,$T \ll \theta^\nu$
+
+整体：$\Omega(\varepsilon) = \frac{64}{15}\pi^3VI(2m)^{3/2}\varepsilon^{5/2}$，$g(\varepsilon)d\varepsilon = \frac{32\pi^3VI(2m)^{3/2}}{3h^5}\varepsilon^{3/2}d\varepsilon$
+
+\textbf{二维单原子非相对论气体}:
+$C_v = Nk$，$\Omega(\varepsilon) = 2\pi mS\varepsilon$，$g(\varepsilon)d\varepsilon = \frac{2\pi mS}{h^2}d\varepsilon$
+
+\textbf{Einstein晶格振动模型}:
+$H = \sum_{i=1}^{3N}(\frac{1}{2m}p_i^2 + \frac{m}{2}(2\pi\nu_i)^2q_i^2)$，假设3N个振动模式固有频率都相等 $\nu_i = \nu$，$\varepsilon = \varepsilon_n = (n+\frac{1}{2})h\nu$
+$z(\beta) = \frac{e^{-1/2\beta h\nu}}{1-e^{-\beta h\nu}}$，$\overline{E}(T) = 3Nh\nu(\frac{1}{2} + \frac{1}{e^{\beta h\nu}-1})$，$C_\nu = 3Nk\varepsilon(\beta h\nu)$，其中
+$\varepsilon(x) = \frac{x^2e^x}{(e^x-1)^2}$ 称为Einstein函数，$S = 3Nk[\frac{\beta h\nu}{e^{\beta h\nu}} - \ln(1-e^{-\beta h\nu})]$
+
+令$\theta_E = \frac{h\nu}{k}(100K-300K)$，称为Einstein温度;
+
+(1)高温时，$T \gg \theta_E, x=\theta_E/T \ll 1, C_\nu \approx 3Nk$;
+
+(2)低温时，$C_\nu \approx 3Nk(\frac{\theta_E}{T})^2e^{-\theta_E/T}$
 
 \bluetext{Bose/Fermi 统计公式}: 上Bose, 下Fermi,
 
-$\ln W\{n_i\} = \sum_i \left[n_i\ln\left(\frac{g_i}{n_i}\right) \pm 1\right] \pm g_i\ln\left(1 \pm \frac{n_i}{g_i}\right)$,
+$\ln W\{n_i\} = \sum_i \left[n_i\ln\left(\frac{g_i}{n_i} \pm 1 \right) \pm g_i\ln\left(1 \pm \frac{n_i}{g_i}\right)\right]$,
 $\Phi(\alpha,\beta,V) = \mp \sum_i g_i\ln\left(1 \mp e^{-\alpha-\beta\varepsilon_i}\right)$,
 
-$N = -\frac{\partial\Psi}{\partial\alpha}$, $E = -\frac{\partial\Psi}{\partial\beta}$, $P = \frac{1}{\beta}\frac{\partial\Psi}{\partial V}$, $S = k\left(\Psi - \alpha\frac{\partial\Psi}{\partial\alpha} - \beta\frac{\partial\Psi}{\partial\beta}\right)$。
+$N = -\frac{\partial\Phi}{\partial\alpha}$, $E = -\frac{\partial\Phi}{\partial\beta}$, $P = \frac{1}{\beta}\frac{\partial\Phi}{\partial V}$, $S = k\left(\Phi - \alpha\frac{\partial\Phi}{\partial\alpha} - \beta\frac{\partial\Phi}{\partial\beta}\right)$。
 
 \bluetext{玻色-爱因斯坦凝聚 (BEC)}: Bose 气体在低于某临界温度时，气体中大部分粒子凝聚在最低能级。其化学势 $\mu < 0$，$T$ 越小化学势越高，越接近于 $0-$。临界温度: $T_c = \frac{h^2}{2\pi mk}\left(\frac{n}{2.612}\right)^{2/3}$ 即 $n\lambda^3(T=T_c) = 2.612$，$\lambda = \frac{h}{p} = \frac{h}{\sqrt{2\pi mkT}}$。
 
@@ -317,40 +439,100 @@ $\frac{2\pi V}{h^3}(2mkT_c)^{3/2}\int_0^{\infty}\frac{\sqrt{x}dx}{e^x-1} = 2.612
 
 即可解出临界温度。
 
-\bluetext{光子气体}: 腔内场域腔壁不断作用达到热平衡态，温度为 $T$。光子静止质量为零，能量和动量满足 $\varepsilon = cp$，$J = 2$。光子数不守恒！
+\textbf{半经典极限条件}$e^{\alpha} \gg 1$,即$e^\alpha = z/N =(\frac{V}{N})(\frac{2m\pi kT}{h^2})^{3/2} \gg 1$,可以改写为$n\lambda^3 \ll 1$，
+
+\textbf{比较}：另一种半经典近似条件——能级准连续条件
+
+考虑平动能级：
+$\varepsilon_i = \frac{h^2}{8mL^2}(n_1^2 + n_2^2 + n_3^2)$，$\Delta\varepsilon \approx \frac{h^2}{8mL^2}$
+准连续条件 $\Delta\varepsilon \ll kT$ 要求 $\frac{h^2}{8mL^2} \ll kT$
+
+即 $\frac{h^2}{8mL^2} \ll \frac{h^2}{2m\pi\lambda^2}$，即 $L \gg \frac{\sqrt{\pi}}{2}\lambda$
+
+作为估算，可取 $L \gg \lambda$ ($\lambda = \frac{h}{\sqrt{2m\pi kT}}$)
+
+\bluetext{光子气体}: (bose-einstein分布)腔内场域腔壁不断作用达到热平衡态，温度为 $T$。光子静止质量为零，能量和动量满足 $\varepsilon = cp$，$J = 2$。光子数不守恒！
 
 $n_i = \frac{g_i}{e^{\beta\varepsilon_i}-1}$，$g(\nu)d\nu = \frac{4\pi JV}{c^3}\nu^2d\nu$，$n(\nu)d\nu = \frac{4\pi JV}{c^3}\frac{\nu^2}{e^{h\nu/kT}-1}d\nu$，
-Planck 公式: $\bar{E}(\nu,T)d\nu = h\nu n(\nu)d\nu = \frac{4\pi JV}{c^3}\frac{h\nu^3}{e^{h\nu/kT}-1}d\nu$，
-总光子数: $N=\int_0^{\infty}n(\nu)d\nu=4\pi JV \times 2.404\left(\frac{kT}{hc}\right)^3$，
+Planck 公式: $\bar{E}(\nu,T)d\nu = h\nu n(\nu)d\nu = \frac{8\pi V}{c^3}\frac{h\nu^3}{e^{h\nu/kT}-1}d\nu$，
+
+\textbf{两个极限频率}
+$h\nu/kT \ll 1$: $\bar{E}(\nu,T) \approx \frac{8\pi V}{c^3}kT\nu^2$(瑞利金斯公式)，
+$h\nu/kT \gg 1$: $\bar{E}(\nu,T) \approx \frac{8\pi V}{c^3}h\nu^3e^{-h\nu/kT}$(维恩公式)，
+
+总光子数: $N=\int_0^{\infty}n(\nu)d\nu=8\pi V \times 2.404\left(\frac{kT}{hc}\right)^3$，
 总能量: $\bar{E} = bVT^4$，总能量密度: $u = \frac{\bar{E}}{V} = bT^4$，总面辐射强度: $J = \frac{1}{4}cu = \sigma T^4$，其中 $b = \frac{8\pi^5k^4}{15(hc)^3}$、$\sigma = \frac{2\pi^5k^4}{15h^3c^2}$。
 
-\bluetext{声子气体}：声子不断产生和消灭，能量和动量满足: $\varepsilon = vp$，横波 $J = 2$，纵波 $J = 1$。总声子数不守恒！根据总模式数只有 $3N$ 个, $\int_0^{\nu_D} g(\nu)d\nu = 3N$ 可以得到德拜频率。特征温度 $\theta_D = \frac{h\nu_D}{k}$，$\bar{n_i} = \frac{g_i}{e^{h\nu_i/kT}-1}$。$n(\nu)d\nu = \frac{g(\nu)d\nu}{e^{\beta h\nu}-1}$，
+% 也可以用振子模型TODO,体现了光的波粒二象性
 
-\begin{figure}[H]
-    \vspace{-0.3cm}
-    \centering
-    \includegraphics[width=0.33\textwidth]{images/4.png}
-    \vspace{-0.6cm}
-\end{figure}
-\begin{figure}[H]
-    \vspace{-0.3cm}
-    \centering
-    \includegraphics[width=0.33\textwidth]{images/5.png}
-    \vspace{-0.6cm}
-\end{figure}
+\bluetext{声子气体}：声子不断产生和消灭，能量和动量满足: $\varepsilon = vp$，横波 $J = 2$，纵波 $J = 1$。
+总声子数不守恒！根据总模式数只有 $3N$ 个, $\int_0^{\nu_D} g(\nu)d\nu = 3N$ 可以得到德拜频率。特征温度 $\theta_D = \frac{h\nu_D}{k}$，平衡态平均声子数$\bar{n_i} = \frac{g_i}{e^{h\nu_i/kT}-1}$。$n(\nu)d\nu = \frac{g(\nu)d\nu}{e^{\beta h\nu}-1}$，
+
+本征模式：指具有有确定的频率、波矢、振动方向的特殊声波；• 引入声子概念后晶格的振动就被看做是声子气体的运动
+
+de Broglie关系:
+$\varepsilon = h\nu$
+$\vec{p} = \hbar\vec{k}$ $(p = \frac{h}{\lambda})$
+$\nu = \mathrm{v}/\lambda$
+$\varepsilon = h(\mathrm{v}/\lambda) = \mathrm{v}(h/\lambda)$
+$\Rightarrow \varepsilon = \mathrm{v}p$ (声子能量-动量关系)
+
+Debye假设：频率有上限
+
+\textbf{一维:}
+$g(\nu)d\nu = 2L(\frac{2}{\mathrm{v_t}} + \frac{1}{\mathrm{v_l}})d\nu = B_1d\nu = \frac{3N}{\nu_D}d\nu$，$(0 \leq \nu \leq \nu_D)$
+$n(\nu)d\nu = \frac{3N}{\nu_D}\frac{1}{e^{\beta h\nu}-1}d\nu$，$(0 \leq \nu \leq \nu_D)$，$\nu_D = \frac{3N}{B_1}$
+$\overline{E}(T,V) = \frac{3N}{\nu_D}\frac{(kT)^2}{h}\frac{\pi^2}{6}$，$C_V = Nk\pi^2\frac{T}{\theta_D}$
+
+\textbf{二维:}
+$g(\nu)d\nu = 2\pi S(\frac{2}{\mathrm{v}_t^2} + \frac{1}{\mathrm{v}_l^2})\nu d\nu = B_2\nu d\nu = \frac{6N}{\nu_D^2}\nu d\nu$, $(0 \leq \nu \leq \nu_D)$
+$n(\nu)d\nu = \frac{6N}{\nu_D^2}\nu d\nu\frac{1}{e^{\beta h\nu}-1}$, $(0 \leq \nu \leq \nu_D)$, $\nu_D = (\frac{6N}{B_2})^{\frac{1}{2}}$
+$\overline{E}(T,V) = \frac{6N}{\nu_D^2}(\frac{kT}{h^2})^3\cdot2.404$, $C_V = 18Nk(\frac{T}{\theta_D})^2\cdot2.404$
+
+\textbf{三维:}
+$g(\nu)d\nu = 4\pi V(\frac{2}{\mathrm{v}_t^3} + \frac{1}{\mathrm{v}_l^3})\nu^2d\nu = B_3\nu^2d\nu = \frac{9N}{\nu_D^3}\nu^2d\nu$, $(0 \leq \nu \leq \nu_D)$
+
+$n(\nu)d\nu = \frac{9N}{\nu_D^3}\nu^2d\nu\frac{1}{e^{\beta h\nu}-1}$, $(0 \leq \nu \leq \nu_D)$, 
+
+$\nu_D = (\frac{9N}{B_3})^{\frac{1}{3}}$合理性检验：取$v_t=v_l=v$,$\lambda_D = \frac{v}{\nu_D}=(\frac{4\pi V}{3N})^{1/3}$
+
+$\overline{E}(T,V) = \frac{9N}{\nu_D^3}\int_0^{\nu_D}\frac{h\nu^3}{e^{\beta h\nu}-1}d\nu = \frac{9N}{y^3}kT\int_0^y\frac{x^3}{e^x-1}dx$, 
+其中$y = \frac{h\nu_D}{kT}$，$x = \beta h\nu =\frac{h\nu}{kT}$
+
+高温时：$y \ll 1$，$\overline{E}(T,V) = 3NkT$，$C_V = 3Nk$
+% $C_V = 9Nk(\frac{kT}{h\nu_D})^3\int_0^y x^2\varepsilon(x)dx$, $y = \frac{h\nu_D}{kT}$
+
+低温时: $y \gg 1$, $C_V = 3Nk\frac{4\pi^4}{5}(\frac{T}{\theta_D})^3$,其中$\theta_D = \frac{h\nu_D}{k}$，约为几百K
 
 \bluetext{Fermi 气体}: 以电子气体为例，$J = 2$，计算 Fermi 能级时利用 $T \to 0$ 时 $\mu_0 = \varepsilon_F$，$N = \int_0^{\mu_0}g(\varepsilon)d\varepsilon$，$\bar{E_0} = \int_0^{\mu_0}\varepsilon g(\varepsilon)d\varepsilon$。
 
-非相对论情况:
+\textbf{零温情形}
+T=0K的情形称为完全简并的电子Fermi气体。粒子从最低单粒子态填起，依次填充，直到填满为止(最高的单粒子能级叫做费米能级)
+定义单个量子态上的平均粒子数$f_i=n_i/g_i$, $\alpha+\beta \varepsilon_i=(\varepsilon_i-\mu_0)/kT$
 
-$n_i = \frac{g_i}{e^{\alpha+\beta\varepsilon_i}+1}$，
-$g(\varepsilon) = J\frac{2\pi V(2m)^{3/2}}{h^3}\sqrt{\varepsilon}$，$\varepsilon_F = \frac{h^2}{2m}\left(\frac{3}{4\pi J}\frac{N}{V}\right)^{2/3}$，
-$N = \frac{4\pi JV(2m)^{3/2}}{3h^3}\varepsilon_F^{3/2}$，
+$f_i = \frac{1}{e^{\alpha+\beta\varepsilon_i}+1} = \left\{\begin{array}{ll}1, & \varepsilon_i < \mu_0\\0, & \varepsilon_i > \mu_0\end{array}\right.$
 
-$\bar{E_0} = \frac{3}{5}N\varepsilon_F$，$\bar{P_0} = \frac{2}{3}\frac{\bar{E_0}}{V}$，$\bar{\varepsilon_0} = \frac{3}{5}\varepsilon_F$
+$g(\varepsilon) = J\frac{2\pi V(2m)^{3/2}}{h^3}\sqrt{\varepsilon}=CV\sqrt{\varepsilon}$，其中$J = 2$，$C = \frac{2\pi J(2m)^{3/2}}{h^3}$
+$N = \sum_i n_i = \sum_{i(\varepsilon_i<\mu_0)} g_i = \int_0^{\mu_0} g(\varepsilon)d\varepsilon$
+$=CV\int_0^{\mu_0} \sqrt{\varepsilon}d\varepsilon = \frac{2}{3}CV\mu_0^{3/2}$
 
+电子 $\varepsilon_F = \mu_0 = (\frac{3N}{2CV})^{2/3} = \frac{h^2}{2m}(\frac{3}{8\pi}\frac{N}{V})^{2/3} \sim 10^{-18}-10^{-19}J$
+
+$\bar{E_0} = \frac{2}{5}CV\mu_0^{5/2}$，单粒子平均能量$\frac{\bar{E_0}}{N} = \frac{3}{5}\mu_0$
+
+$\bar{P_0} = \frac{2}{3}\frac{\bar{E_0}}{V} = \frac{2}{5}\frac{N\mu_0}{V}$，
+
+\greentext{证明：以立方体容器为例}
+$\varepsilon_i = \frac{(\hbar k)^2}{2m} = \frac{h^2}{2m}[(\frac{n_x\pi}{L})^2 + (\frac{n_y\pi}{L})^2 + (\frac{n_z\pi}{L})^2] = A_iV^{-2/3}$
+
+$\frac{d\varepsilon_i}{dV} = -\frac{2}{3}A_iV^{-2/3-1} = -\frac{2}{3}\frac{\varepsilon_i}{V}$
+
+$P = \sum_i -\frac{d\varepsilon_i}{dV}n_i = \frac{2}{3V}\sum_i\varepsilon_in_i = \frac{2}{3}\frac{\overline{E}}{V}$ ($\overline{E} = \sum_i n_i\varepsilon_i$)
+
+\textbf{有限温度情形}(kT有限大但远小于$\mu_0$)
+
+定义费米温度$T_F = \frac{\mu_0}{k}$，
 $C_V = \frac{\pi^2}{2}Nk\left(\frac{kT}{\mu_0}\right) = \frac{\pi^2}{2}Nk\left(\frac{T}{T_F}\right)$，
-
 近似解法: $\Delta\bar{E} \approx N\cdot\frac{kT}{\mu_0}\cdot 2kT$，$C_V = 4Nk\left(\frac{T}{T_F}\right)$。
 
 相对论情况:
